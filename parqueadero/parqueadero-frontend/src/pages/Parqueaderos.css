@@ -1,0 +1,327 @@
+.parqueaderos-fondo {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(245, 166, 35, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(47, 179, 128, 0.16), transparent 45%),
+    linear-gradient(160deg, var(--asfalto) 0%, var(--asfalto-suave) 55%, #10121a 100%);
+  font-family: var(--fuente-cuerpo);
+  color: var(--papel);
+}
+
+.parqueaderos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.parqueaderos-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fuente-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--papel);
+}
+
+.parqueaderos-logo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 800;
+}
+
+.parqueaderos-usuario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: rgba(236, 237, 239, 0.85);
+}
+
+.parqueaderos-boton-salir {
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--papel);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.parqueaderos-boton-salir:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.parqueaderos-main {
+  padding: 3rem 1.75rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.parqueaderos-titulo {
+  font-family: var(--fuente-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 0.6rem;
+}
+
+.parqueaderos-subtitulo {
+  color: rgba(236, 237, 239, 0.7);
+  margin: 0 auto 2.5rem;
+  max-width: 520px;
+}
+
+.parqueaderos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.tarjeta-parqueadero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1.5rem 2rem;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-habilitada {
+  background: linear-gradient(165deg, rgba(245, 166, 35, 0.14), rgba(255, 255, 255, 0.04));
+  border: 1.5px solid var(--ambar);
+  box-shadow: 0 12px 30px rgba(245, 166, 35, 0.15);
+  cursor: pointer;
+}
+
+.tarjeta-habilitada:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(245, 166, 35, 0.28);
+}
+
+.tarjeta-bloqueada {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px dashed rgba(255, 255, 255, 0.15);
+  color: rgba(236, 237, 239, 0.45);
+}
+
+.tarjeta-badge {
+  position: absolute;
+  top: -0.7rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.tarjeta-badge-disponible {
+  background: var(--verde-ruta);
+  color: #06281c;
+}
+
+.tarjeta-badge-proximamente {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(236, 237, 239, 0.7);
+}
+
+.tarjeta-icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta-icono-activo {
+  background: var(--ambar);
+  color: var(--tinta);
+}
+
+.tarjeta-icono-bloqueado {
+  background: rgba(255, 255, 255, 0.06);
+  filter: grayscale(1);
+}
+
+.tarjeta-parqueadero h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.tarjeta-parqueadero p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.parqueaderos-link-admin {
+  color: var(--papel);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.parqueaderos-link-admin:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.parqueaderos-form {
+  max-width: 420px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.parqueaderos-form h3 {
+  margin: 0 0 0.25rem;
+  font-family: var(--fuente-display);
+  letter-spacing: 0.03em;
+}
+
+.parqueaderos-form input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--papel);
+  font-size: 0.9rem;
+}
+
+.parqueaderos-form-botones {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.parqueaderos-form-botones button {
+  flex: 1;
+  padding: 0.55rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.parqueaderos-form-botones button[type="submit"] {
+  background: var(--ambar);
+  color: var(--tinta);
+}
+
+.parqueaderos-form-botones button[type="button"] {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--papel);
+}
+
+.parqueaderos-form-ayuda {
+  font-size: 0.78rem;
+  opacity: 0.65;
+  margin: 0;
+}
+
+/* Cupos disponibles dentro de cada tarjeta (mejora SCAMPER: ver antes de registrarse) */
+.tarjeta-cupos {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tarjeta-cupos strong {
+  font-size: 1.25rem;
+  color: #22c55e;
+}
+
+/* --- Buscador, resumen y barra de ocupacion --- */
+.parqueaderos-barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.parqueaderos-buscador {
+  flex: 1 1 260px;
+  max-width: 420px;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--papel);
+  font-size: 0.95rem;
+}
+
+.parqueaderos-total {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.parqueaderos-total strong {
+  color: #22c55e;
+  font-size: 1.15rem;
+}
+
+.tarjeta-direccion {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+.tarjeta-barra {
+  width: 100%;
+  height: 6px;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.tarjeta-barra-relleno {
+  height: 100%;
+  border-radius: 999px;
+  background: #22c55e;
+  transition: width 0.4s ease;
+}
+
+.tarjeta-barra-relleno.alta {
+  background: #f59e0b;
+}
+
+.tarjeta-barra-relleno.critica {
+  background: #ef4444;
+}
+
+.tarjeta-tarifa {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}

@@ -1,0 +1,209 @@
+.admin-usuarios-fondo {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(47, 179, 128, 0.14), transparent 40%),
+    radial-gradient(circle at 95% 15%, rgba(245, 166, 35, 0.16), transparent 45%),
+    linear-gradient(170deg, #eef0f2 0%, #e4e8ee 100%);
+  font-family: var(--fuente-cuerpo);
+}
+
+.admin-usuarios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  background: var(--asfalto);
+  color: var(--papel);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.admin-usuarios-header-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.admin-usuarios-volver {
+  color: rgba(236, 237, 239, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.admin-usuarios-volver:hover {
+  color: var(--ambar);
+}
+
+.admin-usuarios-separador {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.admin-usuarios-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fuente-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.admin-usuarios-logo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.admin-usuarios-usuario {
+  font-size: 0.88rem;
+  color: rgba(236, 237, 239, 0.85);
+}
+
+.admin-usuarios-main {
+  padding: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.admin-usuarios-titulo {
+  margin: 0 0 0.35rem;
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  color: var(--tinta);
+}
+
+.admin-usuarios-ayuda {
+  margin: 0 0 1.25rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+  max-width: 560px;
+}
+
+.admin-usuarios-mensaje {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.admin-usuarios-error {
+  color: var(--coral-alerta);
+}
+
+.admin-usuarios-tabla-card {
+  background: white;
+  border-radius: 16px;
+  padding: 0.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--concreto-borde);
+  overflow-x: auto;
+}
+
+.admin-usuarios-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.admin-usuarios-tabla th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--concreto-borde);
+}
+
+.admin-usuarios-tabla td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--concreto-borde);
+  color: var(--tinta);
+}
+
+.admin-usuarios-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.fila-bloqueada {
+  opacity: 0.6;
+}
+
+.admin-usuarios-tag-yo {
+  color: var(--ambar-oscuro);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.admin-usuarios-select {
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--concreto-borde);
+  background: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.admin-usuarios-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.admin-usuarios-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-activo {
+  background: rgba(47, 179, 128, 0.15);
+  color: #1c7a53;
+}
+
+.badge-bloqueado {
+  background: rgba(226, 76, 75, 0.15);
+  color: var(--coral-alerta);
+}
+
+.admin-usuarios-acciones {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-usuarios-boton {
+  padding: 0.4rem 0.75rem;
+  border-radius: 7px;
+  border: 1px solid var(--concreto-borde);
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.admin-usuarios-boton:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.admin-usuarios-boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.admin-usuarios-boton-peligro {
+  border-color: rgba(226, 76, 75, 0.35);
+  color: var(--coral-alerta);
+}
+
+.admin-usuarios-boton-peligro:hover:not(:disabled) {
+  background: rgba(226, 76, 75, 0.08);
+}

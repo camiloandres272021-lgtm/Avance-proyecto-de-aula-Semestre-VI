@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba de Tiempo Real - Parqueadero</title>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #333; }
+    #estado { padding: 10px; background: #f0f0f0; border-radius: 6px; margin-bottom: 20px; }
+    #eventos { border: 1px solid #ccc; border-radius: 6px; padding: 15px; height: 300px; overflow-y: auto; }
+    .evento { padding: 8px; margin-bottom: 8px; border-radius: 4px; }
+    .libre { background: #d4edda; color: #155724; }
+    .ocupado { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+  <h1>🅿️ Prueba de Tiempo Real</h1>
+  <div id="estado">Conectando al servidor...</div>
+  <h3>Eventos recibidos:</h3>
+  <div id="eventos"></div>
+
+  <script>
+    const socket = io('http://localhost:3000');
+    const estadoDiv = document.getElementById('estado');
+    const eventosDiv = document.getElementById('eventos');
+
+    socket.on('connect', () => {
+      estadoDiv.textContent = '✅ Conectado al servidor en tiempo real';
+      estadoDiv.style.background = '#d4edda';
+    });
+
+    socket.on('disconnect', () => {
+      estadoDiv.textContent = '❌ Desconectado del servidor';
+      estadoDiv.style.background = '#f8d7da';
+    });
+
+    socket.on('puesto_actualizado', (puesto) => {
+      const div = document.createElement('div');
+      div.className = 'evento ' + puesto.estado;
+      const hora = new Date().toLocaleTimeString();
+      div.textContent = `[${hora}] Puesto ${puesto.numero} ahora esta: ${puesto.estado.toUpperCase()}`;
+      eventosDiv.prepend(div);
+    });
+  </script>
+</body>
+</html>

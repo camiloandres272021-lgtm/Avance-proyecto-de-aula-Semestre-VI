@@ -1,0 +1,287 @@
+.dashboard-fondo {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--fuente-cuerpo);
+  background: linear-gradient(
+    180deg,
+    #ffc35c 0%,
+    var(--ambar) 14%,
+    var(--ambar-oscuro) 30%,
+    #4a2f12 48%,
+    var(--asfalto-suave) 66%,
+    var(--tinta) 100%
+  );
+  background-size: 100% 240%;
+  animation: dashboardFondoOla 16s ease-in-out infinite alternate;
+}
+
+/* Un par de resplandores suaves que se mueven lentamente, para que el fondo
+   se sienta "vivo" y no sea solo un degradado estatico. */
+.dashboard-fondo::before,
+.dashboard-fondo::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dashboard-fondo::before {
+  width: 55vw;
+  height: 55vw;
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.55), transparent 70%);
+  animation: dashboardGlow1 18s ease-in-out infinite alternate;
+}
+
+.dashboard-fondo::after {
+  width: 45vw;
+  height: 45vw;
+  bottom: -15%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(20, 22, 26, 0.65), transparent 70%);
+  animation: dashboardGlow2 20s ease-in-out infinite alternate;
+}
+
+@keyframes dashboardFondoOla {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 35%; }
+}
+
+@keyframes dashboardGlow1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6%, 8%) scale(1.15); }
+}
+
+@keyframes dashboardGlow2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5%, -6%) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-fondo,
+  .dashboard-fondo::before,
+  .dashboard-fondo::after {
+    animation: none;
+  }
+}
+
+/* El header y el contenido van por encima de los resplandores de fondo */
+.dashboard-header,
+.dashboard-main {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  background: var(--asfalto);
+  color: var(--papel);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-header-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.dashboard-volver {
+  color: rgba(236, 237, 239, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.dashboard-volver:hover {
+  color: var(--ambar);
+}
+
+.dashboard-separador {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fuente-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.dashboard-logo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--ambar);
+  color: var(--tinta);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.dashboard-usuario {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: rgba(236, 237, 239, 0.85);
+}
+
+.dashboard-link-admin {
+  color: var(--ambar);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 7px;
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  transition: background 0.2s;
+}
+
+.dashboard-link-admin:hover {
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.dashboard-boton-salir {
+  padding: 0.4rem 0.85rem;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--papel);
+  cursor: pointer;
+}
+
+.dashboard-boton-salir:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-main {
+  padding: 1.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-encabezado-plano {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-titulo {
+  margin: 0 0 0.35rem;
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  color: var(--tinta);
+}
+
+.dashboard-ayuda {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+  max-width: 560px;
+}
+
+.dashboard-boton-edicion {
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--concreto-borde);
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dashboard-boton-edicion.activo {
+  background: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--tinta);
+}
+
+.dashboard-tabs-nivel {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-tab {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--concreto-borde);
+  background: white;
+  color: #4b5563;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dashboard-tab.activo {
+  background: var(--asfalto);
+  border-color: var(--asfalto);
+  color: var(--papel);
+}
+
+.dashboard-plano-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--concreto-borde);
+}
+
+.plano-mensaje {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.plano-mensaje-error {
+  color: var(--coral-alerta);
+}
+
+/* Aviso para visitantes sin sesion (mejora SCAMPER "Reorganizar") */
+.dashboard-aviso-visitante {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--concreto-borde);
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.dashboard-reporte {
+  margin-top: 1.25rem;
+}
+
+/* Celulares: encabezado y botones mas comodos de tocar (mejora "Modificar") */
+@media (max-width: 640px) {
+  .dashboard-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .dashboard-tab,
+  .dashboard-boton-edicion,
+  .dashboard-boton-salir,
+  .dashboard-link-admin {
+    min-height: 44px;
+  }
+  .dashboard-plano-card {
+    padding: 0.75rem;
+  }
+}
